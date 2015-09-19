@@ -32,7 +32,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-              <h1>Insta</h1>
+              <h1>Instasomething</h1>
               <p class="lead"><a href="new_photo.php">Add New Photo</a></p>
             </div>
         </div>
