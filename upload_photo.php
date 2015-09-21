@@ -1,4 +1,5 @@
 <?php
+
     $mysqli = mysqli_connect("localhost", "root", "root", "instasomething");
 
     $filename = $_FILES['user_file']['name'];
@@ -13,7 +14,7 @@
         {
             echo 'The file is valid and was successfully uploaded.  <br />';
             echo "The file, $filename, is $filesize bytes.<br />";
-            $query = "INSERT INTO Posts (file_path,description) VALUES ('$uploadFile', '$description');";
+            $query = "INSERT INTO Posts (file_path,description) VALUES ('$filename', '$description');";
             $result = mysqli_query($mysqli, $query);
             if (!$result) {
                 exit('Database query error: '. mysql_error($mysqli));
