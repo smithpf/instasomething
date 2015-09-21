@@ -6,3 +6,6 @@ CREATE TABLE `Posts` (
   `file_path` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
+
+
+ALTER TABLE `Posts` ADD `post_date` datetime 

@@ -7,6 +7,7 @@
     $directory = $_SERVER['DOCUMENT_ROOT'] . '/uploads/';
     $uploadFile = $directory . $filename;
     $description = $_POST['description'];
+    $today = date("Y-m-d H:i:s");
 
     if (file_exists($_FILES['user_file']['tmp_name']))
     {
@@ -14,10 +15,10 @@
         {
             echo 'The file is valid and was successfully uploaded.  <br />';
             echo "The file, $filename, is $filesize bytes.<br />";
-            $query = "INSERT INTO Posts (file_path,description) VALUES ('$filename', '$description');";
+            $query = "INSERT INTO Posts (file_path,description,post_date) VALUES ('$filename', '$description', '$today');";
             $result = mysqli_query($mysqli, $query);
             if (!$result) {
-                exit('Database query error: '. mysql_error($mysqli));
+                exit("Database query ($query) error: ". mysql_error($mysqli));
             }
             else
             {

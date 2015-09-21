@@ -1,10 +1,10 @@
 <?php include('header.php') ?>        
 <?php
     $mysqli = mysqli_connect("localhost", "root", "root", "instasomething");
-    $query = "SELECT * FROM Posts;";
+    $query = "SELECT * FROM Posts ORDER BY id DESC;";
     $result = mysqli_query($mysqli, $query);
     if (!$result) {
-        exit('Database query error: '. mysql_error($mysqli));
+        exit("Database query error: mysql_error($mysqli) $query");
     }
 ?>
 
@@ -22,7 +22,7 @@
                src="/uploads/<?= $record["file_path"]?>" width="300" alt="">
           <p>
               <span class="glyphicon glyphicon-time"></span> 
-              Posted on August 24, 2013 at 9:00 PM
+              <?= $record["post_date"]?>
           </p>
           <p class="lead">
               <?= $record["description"]?>
